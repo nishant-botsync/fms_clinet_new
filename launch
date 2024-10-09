@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="rosbridge" default="false"/>
+<arg name="fms_client" default="true"/>
+
+<group if="$(arg fms_client)">
+
+    <node pkg="fms_client" type="fms_client.py" name="fms_client" output="screen" respawn="true" args=" $(env robot_ns) 172.18.10.76 "></node>
+    <node pkg="fms_client" type="fms_laser_client.py" name="fms_laser_client" output="screen" respawn="true" args=" $(env robot_ns) 172.18.10.76 "></node>
+    <node pkg="fms_client" type="fms_rest_client.py" name="fms_rest_client" output="screen" respawn="true" args=" $(env robot_ns) 172.18.10.76 "></node>
+    <node pkg="fms_client" type="fms_service_client.py" name="fms_service_client" output="screen" respawn="true" args=" $(env robot_ns) 172.18.10.76 "></node>
+    <node pkg="fms_client" type="fms_tms_client.py" name="fms_tms_client" output="screen" respawn="true" args=" $(env robot_ns) 172.18.10.76 "></node>
+</group>
+
+<group if="$(arg rosbridge)">
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+</group>
+</launch>

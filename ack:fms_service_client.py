@@ -427,9 +427,11 @@ class RosClient():
                     return None
                 self.service_call(service, args,service_id)
             if op == "ACK_FROM_FMS":
-                print('fms recieved the call , not poping the stack')
-                del self.service_calls_stack[service_id]
-                return None
+                service_id =  m.get('ID')
+                if self.service_calls_stack[service_id]:
+                    print('fms recieved the call , not poping the stack')
+                    del self.service_calls_stack[service_id]
+                    return None
 
             # if op == "SUBSCRIBE":
             #     topic = m.get("topic")

@@ -341,7 +341,8 @@ class RosClient():
             msg = {
                     "op": "SERVICE_MSG",
                     "service": service,
-                    "result": resp
+                    "result": resp,
+                    "ID": service_id
                     }
             logger_info_configuration("sending to root")
             print('service call stored in variable')
@@ -428,7 +429,7 @@ class RosClient():
                 self.service_call(service, args,service_id)
             if op == "ACK_FROM_FMS":
                 service_id =  m.get('ID')
-                if self.service_calls_stack[service_id]:
+                if self.service_calls_stack.get(service_id):
                     print('fms recieved the call , not poping the stack')
                     del self.service_calls_stack[service_id]
                     return None

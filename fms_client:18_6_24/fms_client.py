@@ -162,7 +162,6 @@ class RosClient():
             "/"+self.robot_name+"/hw_bms_feedback": now,
             "/"+self.robot_name+"/robot_pose": now,
             "/"+self.robot_name+"/fms_indication_notification": now,
-            "/"+self.robot_name+"/task_status": now,
             "/"+self.robot_name+"/error_list": now,
             "/"+self.robot_name+"/load_status": now
         }

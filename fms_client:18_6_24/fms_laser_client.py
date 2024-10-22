@@ -539,7 +539,7 @@ if __name__ == '__main__':
     # #ws::localhost
     # print(client_ip)
    
-    factory = MyClientFactory("wss://" + client_ip +":8001/ws/robot_laser_data/"+ robot_name+ "/")
+    factory = MyClientFactory("wss://" + client_ip +":8000/ws/robot_laser_data/"+ robot_name+ "/")
     # factory.protocol = MyClientProtocol(robot_name, robot_ip)
     factory.protocol = MyClientProtocol
     offers = [PerMessageDeflateOffer()]

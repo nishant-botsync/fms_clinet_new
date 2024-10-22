@@ -818,7 +818,7 @@ if __name__ == '__main__':
     ros_client = RosClient(robot_name)
     # #ws::localhost
     # logger_info_configuration(client_ip)
-    factory = MyClientFactory("wss://" + client_ip +":8001/ws/robot_update/"+ robot_name + "/")
+    factory = MyClientFactory("wss://" + client_ip +":8000/ws/robot_update/"+ robot_name + "/")
     # factory.protocol = MyClientProtocol(robot_name, robot_ip)
     factory.protocol = MyClientProtocol
     factory.setProtocolOptions(

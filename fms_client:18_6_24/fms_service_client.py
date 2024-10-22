@@ -430,7 +430,7 @@ if __name__ == '__main__':
     robot_name = sys.argv[1]
     client_ip = sys.argv[2]
     ros_client = RosClient(robot_name)
-    factory = MyClientFactory("wss://" + client_ip +":8001/ws/robot_service_pub/"+ robot_name + "/")
+    factory = MyClientFactory("wss://" + client_ip +":8000/ws/robot_service_pub/"+ robot_name + "/")
     factory.protocol = MyClientProtocol
     factory.setProtocolOptions(
         autoPingInterval=10,
